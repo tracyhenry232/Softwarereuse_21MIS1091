@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - Water Conservation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+        .header {
+            background: #007dbc;
+            padding: 10px;
+            color: white;
+            font-size: 20px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .graph-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .graph {
+            width: 400px;
+            height: 300px;
+        }
+        .back-link, .read-more {
+            margin-top: 20px;
+            display: block;
+            color: #007dbc;
+            font-size: 18px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Statistics - Water Conservation</div>
+    <div class="container">
+        <h2>Impact Analysis Over the Years</h2>
+        <div class="graph-container">
+            <div id="line-chart" class="graph"></div>
+            <div id="bar-chart" class="graph"></div>
+        </div>
+        <a href="https://tnsdg.tn.gov.in/sustainable-development-goals/goal/6/national-indicators" class="read-more">Read More →</a>
+        <a href="index.html" class="back-link">&#8592; Back to Home</a>
+    </div>
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        var years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+        var values = [0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0];
+
+        var lineChart = {
+            x: years,
+            y: values,
+            mode: 'lines+markers',
+            marker: { color: 'blue' },
+            line: { shape: 'spline', color: 'brown' },
+            name: 'Water Conservation'
+        };
+
+        var barChart = {
+            x: years,
+            y: values,
+            type: 'bar',
+            marker: { color: 'brown' },
+            name: 'Water Conservation'
+        };
+
+        Plotly.newPlot('line-chart', [lineChart], { 
+            title: 'Water Conservation Impact Over Years', 
+            xaxis: { title: 'Year' }, 
+            yaxis: { title: 'Impact Score' } 
+        });
+
+        Plotly.newPlot('bar-chart', [barChart], { 
+            title: 'Water Conservation Impact Over Years', 
+            xaxis: { title: 'Year' }, 
+            yaxis: { title: 'Impact Score' } 
+        });
+    </script>
+</body>
+</html>
